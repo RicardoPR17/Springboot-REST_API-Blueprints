@@ -4,6 +4,7 @@ on:
     branches:
       - main
       - develop
+      - feature3/sonar
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:

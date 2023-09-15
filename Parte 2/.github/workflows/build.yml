@@ -35,4 +35,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=RicardoPR17_Springboot-REST_API-Blueprints
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=RicardoPR17_Springboot-REST_API-Blueprints -Pcoverage
+      - name: cache target
+        uses: actions/cache@v3
+        with:
+          path: |
+            target
+          key: cache-v1-${{ hashFiles('**/src', '**/pom.xml', '**/.github') }}

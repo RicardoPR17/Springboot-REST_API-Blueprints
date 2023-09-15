@@ -5,6 +5,8 @@
  */
 package edu.eci.arsw.blueprints.persistence;
 
+import java.util.Set;
+
 import edu.eci.arsw.blueprints.model.Blueprint;
 
 /**
@@ -12,22 +14,39 @@ import edu.eci.arsw.blueprints.model.Blueprint;
  * @author hcadavid
  */
 public interface BlueprintsPersistence {
-    
+
     /**
      * 
      * @param bp the new blueprint
-     * @throws BlueprintPersistenceException if a blueprint with the same name already exists,
-     *    or any other low-level persistence error occurs.
+     * @throws BlueprintPersistenceException if a blueprint with the same name
+     *                                       already exists,
+     *                                       or any other low-level persistence
+     *                                       error occurs.
      */
     public void saveBlueprint(Blueprint bp) throws BlueprintPersistenceException;
-    
+
     /**
      * 
-     * @param author blueprint's author
+     * @param author     blueprint's author
      * @param bprintname blueprint's author
      * @return the blueprint of the given name and author
      * @throws BlueprintNotFoundException if there is no such blueprint
      */
-    public Blueprint getBlueprint(String author,String bprintname) throws BlueprintNotFoundException;
-    
+    public Blueprint getBlueprint(String author, String bprintname) throws BlueprintNotFoundException;
+
+    /**
+     * 
+     * @param author blueprint's author
+     * @return the set of blueprints of the given author
+     * @throws BlueprintNotFoundException if there is no author related to a
+     *                                    blueprint
+     */
+    public Set<Blueprint> getBlueprintByAuthor(String author) throws BlueprintNotFoundException;
+
+    /**
+     * 
+     * @return a set with all the blueprints
+     */
+    public Set<Blueprint> getAllBlueprints();
+
 }

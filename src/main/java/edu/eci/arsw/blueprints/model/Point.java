@@ -12,7 +12,7 @@ import java.util.Objects;
  * @author hcadavid
  */
 public class Point {
-   
+
     private int x;
     private int y;
 
@@ -22,8 +22,8 @@ public class Point {
     }
 
     public Point() {
-    }    
-    
+    }
+
     public int getX() {
         return x;
     }
@@ -42,12 +42,22 @@ public class Point {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         Point point = (Point) o;
         return x == point.x && y == point.y;
     }
 
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + x;
+        result = prime * result + y;
+        return result;
+    }
 
     @Override
     public String toString() {

@@ -11,15 +11,16 @@ import java.util.ArrayList;
 @Component
 @Qualifier("Subsampling")
 public class BlueprintSubsamplingFiltering implements BlueprintFilter {
-    private int cont=0;
+    private int cont = 0;
+
     @Override
     public Blueprint filter(Blueprint bp) {
-        ArrayList<Point> points=  new ArrayList<>(bp.getPoints());
-        for(int i=0; i<bp.getPoints().size(); i++){
-            if(cont==2){
+        ArrayList<Point> points = new ArrayList<>(bp.getPoints());
+        for (int i = 0; i < bp.getPoints().size(); i++) {
+            if (cont == 2) {
                 points.remove(i);
-                cont=0;
-            }else {
+                cont = 0;
+            } else {
                 cont++;
             }
         }

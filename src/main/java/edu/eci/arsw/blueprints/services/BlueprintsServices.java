@@ -30,11 +30,11 @@ public class BlueprintsServices {
 
     @Autowired
     @Qualifier("Redundancy")
-    BlueprintFilter blueprintFilter=null;
+    BlueprintFilter blueprintFilter = null;
 
     public void addNewBlueprint(Blueprint bp) {
         try {
-            Blueprint blueprint=blueprintFilter.filter(bp);
+            Blueprint blueprint = blueprintFilter.filter(bp);
             bpp.saveBlueprint(blueprint);
         } catch (BlueprintPersistenceException e) {
         }
@@ -72,6 +72,5 @@ public class BlueprintsServices {
             throw new BlueprintNotFoundException("Author not found");
         }
     }
-
 
 }

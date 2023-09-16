@@ -11,7 +11,7 @@ public class Main {
         ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
         BlueprintsServices bps = ac.getBean(BlueprintsServices.class);
 
-        Point[] pts = new Point[] { new Point(0, 0), new Point(10, 10), new Point(10,10) };
+        Point[] pts = new Point[] { new Point(0, 0), new Point(10, 10), new Point(10, 10) };
         Blueprint bp = new Blueprint("john", "thepaint", pts);
         Blueprint bp2 = new Blueprint("Carlos", "architecture");
         Blueprint bp3 = new Blueprint("Ana", "house");

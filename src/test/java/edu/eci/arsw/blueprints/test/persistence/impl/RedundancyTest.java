@@ -14,10 +14,10 @@ import static org.junit.jupiter.api.Assertions.*;
 public class RedundancyTest {
 
     @Test
-    public void shouldDeleteRepeatedPoints(){
-        BlueprintRedundancyFiltering blueprintRedundancyFiltering= new BlueprintRedundancyFiltering();
+    public void shouldDeleteRepeatedPoints() {
+        BlueprintRedundancyFiltering blueprintRedundancyFiltering = new BlueprintRedundancyFiltering();
 
-        Point[] pts0 = new Point[] { new Point(40, 40), new Point(40, 40) , new Point(15,15)};
+        Point[] pts0 = new Point[] { new Point(40, 40), new Point(40, 40), new Point(15, 15) };
         Blueprint bp0 = new Blueprint("mack", "mypaint", pts0);
 
         blueprintRedundancyFiltering.filter(bp0);
@@ -26,15 +26,15 @@ public class RedundancyTest {
     }
 
     @Test
-    public void shouldNotDeletePoints(){
-        BlueprintRedundancyFiltering blueprintRedundancyFiltering= new BlueprintRedundancyFiltering();
+    public void shouldNotDeletePoints() {
+        BlueprintRedundancyFiltering blueprintRedundancyFiltering = new BlueprintRedundancyFiltering();
 
-        Point[] pts1 = new Point[] { new Point(50, 50), new Point(40, 40) , new Point(15,15)};
+        Point[] pts1 = new Point[] { new Point(50, 50), new Point(40, 40), new Point(15, 15) };
         Blueprint bp1 = new Blueprint("mack", "mypaint", pts1);
 
         blueprintRedundancyFiltering.filter(bp1);
 
-        List<Point> points= Arrays.asList(pts1);
+        List<Point> points = Arrays.asList(pts1);
         assertTrue(bp1.getPoints().equals(points));
 
     }
